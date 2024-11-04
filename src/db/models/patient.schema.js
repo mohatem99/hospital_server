@@ -8,7 +8,13 @@ const patientSchema = new Schema(
     phone: { type: String, required: true },
     address: { type: String, required: true },
 
-    medicalHistory: { type: [String], required: true },
+    medicalCondition: { type: String },
+    status: {
+      type: String,
+      enum: ["waiting", "in consultation", "completed"],
+      default: "waiting",
+    },
+    queueTicket: { type: Schema.Types.ObjectId, ref: "Ticket" },
   },
   { timestamps: true }
 );

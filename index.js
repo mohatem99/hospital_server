@@ -10,6 +10,7 @@ import authRoutes from "./src/modules/auth/routes.js";
 import userRoutes from "./src/modules/user/routes.js";
 import patientRoutes from "./src/modules/patient/routes.js";
 import queueRoutes from "./src/modules/queu/routes.js";
+import ticketRoutes from "./src/modules/ticket/routes.js";
 config();
 
 dbConnection();
@@ -21,6 +22,7 @@ app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/patients", patientRoutes);
 app.use("/queue", queueRoutes);
+app.use("/tickets", ticketRoutes);
 app.use("*", (req, res, next) => {
   next(new ApiError(`Can not find this route ${req.originalUrl}`, 400));
 });

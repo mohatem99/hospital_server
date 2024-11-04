@@ -13,7 +13,6 @@ export const login = asyncHandler(async (req, res, next) => {
   }
 
   const user = await User.findOne({ email });
-  console.log(user);
 
   if (!user || !(await bcrypt.compare(password, user.password))) {
     return next(new ApiError("Invalid email or password", 401));
